@@ -1,7 +1,7 @@
 Summary:	X Keyboard Configuration Database
 Name:		xkeyboard-config
 Version:	0.9
-Release:	0.1
+Release:	0.2
 License:	BSD
 Group:		X11/Development/Libraries
 Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
@@ -9,6 +9,7 @@ Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
 URL:		http://www.freedesktop.org/wiki/Software_2fXKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
+BuildRequires:	xorg-app-xkbcomp
 BuildArch:	noarch
 Obsoletes:	xorg-data-xkbdata
 Provides:	xorg-data-xkbdata
