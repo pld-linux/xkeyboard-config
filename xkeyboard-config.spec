@@ -45,3 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS CREDITS ChangeLog NEWS README TODO docs/H* docs/R*
 %{_datadir}/X11/xkb
+%exclude %{_datadir}/X11/xkb/compiled
