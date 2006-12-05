@@ -1,7 +1,7 @@
 Summary:	X Keyboard Configuration Database
 Name:		xkeyboard-config
 Version:	0.9
-Release:	0.2
+Release:	0.3
 License:	BSD
 Group:		X11/Development/Libraries
 Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
@@ -29,6 +29,7 @@ targetted to XKB-based systems.
 %configure  \
 	--enable-xkbcomp-symlink \
 	--enable-compat-rules \
+	--with-xkb-rules-symlink=xorg \
 	--with-xkb-base=%{_datadir}/X11/xkb
 
 %{__make}
