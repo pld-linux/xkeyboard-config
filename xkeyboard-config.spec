@@ -1,4 +1,5 @@
 Summary:	X Keyboard Configuration Database
+Summary(pl):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	0.9
 Release:	0.3
@@ -10,23 +11,31 @@ URL:		http://www.freedesktop.org/wiki/Software_2fXKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	xorg-app-xkbcomp
-BuildArch:	noarch
-Obsoletes:	xorg-data-xkbdata
 Provides:	xorg-data-xkbdata
+Obsoletes:	xorg-data-xkbdata
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The non-arch keyboard configuration database for X Window. The goal is
-to provide the consistent, well-structured, frequently released open
-source of X keyboard configuration data for X Window System
-implementations (free, open source and commercial). The project is
-targetted to XKB-based systems.
+The non-arch keyboard configuration database for X Window System. The
+goal is to provide the consistent, well-structured, frequently
+released open source of X keyboard configuration data for X Window
+System implementations (free, open source and commercial). The project
+is targeted to XKB-based systems.
+
+%description -l pl
+Niezale¿na od architektury baza danych konfiguracji klawiatury dla
+systemu X Window. Celem jest dostarczenie spójnych, dobrze
+zbudowanych, czêsto wydawanych danych konfiguracji klawiatury pod X z
+otwartymi ¼ród³ami dla implementacji X Window System (wolnodostêpnych,
+maj±cych otwarte ¼ród³a i komercyjnych). Projekt jest przeznaczony dla
+systemów opartych na XKB.
 
 %prep
 %setup -q
 
 %build
-%configure  \
+%configure \
 	--enable-xkbcomp-symlink \
 	--enable-compat-rules \
 	--with-xkb-rules-symlink=xorg \
