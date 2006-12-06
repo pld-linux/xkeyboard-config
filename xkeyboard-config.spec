@@ -3,7 +3,7 @@ Summary(pl):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	0.9
 Release:	0.3
-License:	BSD
+License:	MIT
 Group:		X11/Development/Libraries
 Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
 # Source0-md5:	52afe60101ace8532881e70f6c2dc020
@@ -57,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CREDITS ChangeLog NEWS README TODO docs/H* docs/R*
+%doc AUTHORS COPYING CREDITS ChangeLog NEWS README TODO docs/H* docs/R*
 %{_datadir}/X11/xkb
