@@ -55,6 +55,12 @@ ln -s /var/lib/xkb $RPM_BUILD_ROOT%{_datadir}/X11/xkb/compiled
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%pre
+# it used to be directory in xkbdata
+if [ -d %{_datadir}/X11/xkb/symbols/pc ]; then
+	rm -rf %{_datadir}/X11/xkb/symbols/pc
+fi
+
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING CREDITS ChangeLog NEWS README TODO docs/H* docs/R*
