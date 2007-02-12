@@ -1,5 +1,5 @@
 Summary:	X Keyboard Configuration Database
-Summary(pl.UTF-8):   Baza danych konfiguracji klawiatury pod X
+Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	0.9
 Release:	1
