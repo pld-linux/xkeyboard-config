@@ -1,5 +1,5 @@
 Summary:	X Keyboard Configuration Database
-Summary(pl):	Baza danych konfiguracji klawiatury pod X
+Summary(pl.UTF-8):   Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	0.9
 Release:	1
@@ -23,13 +23,13 @@ released open source of X keyboard configuration data for X Window
 System implementations (free, open source and commercial). The project
 is targeted to XKB-based systems.
 
-%description -l pl
-Niezale縩a od architektury baza danych konfiguracji klawiatury dla
-systemu X Window. Celem jest dostarczenie sp骿nych, dobrze
-zbudowanych, cz阺to wydawanych danych konfiguracji klawiatury pod X z
-otwartymi 紃骴砤mi dla implementacji X Window System (wolnodost阷nych,
-maj眂ych otwarte 紃骴砤 i komercyjnych). Projekt jest przeznaczony dla
-system體 opartych na XKB.
+%description -l pl.UTF-8
+Niezale偶na od architektury baza danych konfiguracji klawiatury dla
+systemu X Window. Celem jest dostarczenie sp贸jnych, dobrze
+zbudowanych, cz臋sto wydawanych danych konfiguracji klawiatury pod X z
+otwartymi 藕r贸d艂ami dla implementacji X Window System (wolnodost臋pnych,
+maj膮cych otwarte 藕r贸d艂a i komercyjnych). Projekt jest przeznaczony dla
+system贸w opartych na XKB.
 
 %prep
 %setup -q
