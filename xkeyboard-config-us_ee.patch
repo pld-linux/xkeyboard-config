@@ -1,0 +1,35 @@
+--- xkeyboard-config-1.1/symbols/us~	2007-09-26 14:56:42.000000000 +0300
++++ xkeyboard-config-1.1/symbols/us	2007-12-24 01:33:18.000000000 +0200
+@@ -769,3 +769,32 @@
+ 
+     include "level3(switch)"
+ };
++
++
++// Estonian few characters on basic US keymap.
++// by Elan Ruusamäe <glen@delfi.ee>
++partial alphanumeric_keys
++xkb_symbols "ee" {
++    include "us(basic)"
++    name[Group1]= "U.S. English - Estonian keyboard";
++
++	key <AD11> { [ bracketleft,  braceleft,  udiaeresis, Udiaeresis ] };
++	key <AD12> { [ bracketright, braceright, otilde,     Otilde     ] };
++	key <AC10> { [ semicolon,    colon,      odiaeresis, Odiaeresis ] };
++	key <AC11> { [ quoteright,   quotedbl,   adiaeresis, Adiaeresis ] };
++
++	// ¨ and ¨
++	key <AC02> { [           s,  S,          scaron,     Scaron     ] };
++	// ´ and ¸
++	key <AB01> { [           z,  Z,          zcaron,     Zcaron     ] };
++
++	// euro
++	key <AD03> { [           e,  E,          EuroSign,   EuroSign   ] };
++
++	// cent
++	key <AB03> { [           c,  C,          cent,       cent       ] };
++
++	key <AE03> { [           3,  numbersign, sterling,   sterling   ] };
++
++    include "us(euro)"
++};
