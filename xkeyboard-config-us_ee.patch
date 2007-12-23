@@ -10,8 +10,8 @@
 +// by Elan Ruusamäe <glen@delfi.ee>
 +partial alphanumeric_keys
 +xkb_symbols "ee" {
-+    include "us(basic)"
-+    name[Group1]= "U.S. English - Estonian keyboard";
++	include "us(basic)"
++	name[Group1]= "U.S. English - Estonian keyboard";
 +
 +	key <AD11> { [ bracketleft,  braceleft,  udiaeresis, Udiaeresis ] };
 +	key <AD12> { [ bracketright, braceright, otilde,     Otilde     ] };
@@ -31,5 +31,5 @@
 +
 +	key <AE03> { [           3,  numbersign, sterling,   sterling   ] };
 +
-+    include "us(euro)"
++	include "us(euro)"
 +};
