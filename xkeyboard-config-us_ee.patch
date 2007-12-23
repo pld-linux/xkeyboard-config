@@ -18,9 +18,9 @@
 +	key <AC10> { [ semicolon,    colon,      odiaeresis, Odiaeresis ] };
 +	key <AC11> { [ quoteright,   quotedbl,   adiaeresis, Adiaeresis ] };
 +
-+	// ¨ and ¨
++	// š and š
 +	key <AC02> { [           s,  S,          scaron,     Scaron     ] };
-+	// ´ and ¸
++	// Ž and ž
 +	key <AB01> { [           z,  Z,          zcaron,     Zcaron     ] };
 +
 +	// euro
