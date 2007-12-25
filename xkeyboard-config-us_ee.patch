@@ -1,35 +1,47 @@
---- xkeyboard-config-1.1/symbols/us~	2007-09-26 14:56:42.000000000 +0300
-+++ xkeyboard-config-1.1/symbols/us	2007-12-24 01:33:18.000000000 +0200
-@@ -769,3 +769,32 @@
- 
-     include "level3(switch)"
+--- xkeyboard-config-1.1/symbols/ee~	2007-07-16 01:12:12.000000000 +0300
++++ xkeyboard-config-1.1/symbols/ee	2007-12-25 22:59:51.000000000 +0200
+@@ -77,3 +77,29 @@
+     include "level3(ralt_switch)"
+     include "kpdl(comma)"
  };
-+
 +
 +// Estonian few characters on basic US keymap.
 +// by Elan Ruusamäe <glen@delfi.ee>
 +partial alphanumeric_keys
-+xkb_symbols "ee" {
++xkb_symbols "us" {
 +	include "us(basic)"
-+	name[Group1]= "U.S. English - Estonian keyboard";
++    name[Group1]= "Estonia - U.S. keyboard with Estonian letters";
 +
-+	key <AD11> { [ bracketleft,  braceleft,  udiaeresis, Udiaeresis ] };
-+	key <AD12> { [ bracketright, braceright, otilde,     Otilde     ] };
++    include "level3(ralt_switch)"
++
++	// ž, Ž
++	key <AB01> { [           z,  Z,          zcaron,     Zcaron     ] };
++	// ¢
++	key <AB03> { [           c,  C,          cent,       cent       ] };
++	// š, Š
++	key <AC02> { [           s,  S,          scaron,     Scaron     ] };
 +	key <AC10> { [ semicolon,    colon,      odiaeresis, Odiaeresis ] };
 +	key <AC11> { [ quoteright,   quotedbl,   adiaeresis, Adiaeresis ] };
-+
-+	// š and š
-+	key <AC02> { [           s,  S,          scaron,     Scaron     ] };
-+	// Ž and ž
-+	key <AB01> { [           z,  Z,          zcaron,     Zcaron     ] };
-+
-+	// euro
-+	key <AD03> { [           e,  E,          EuroSign,   EuroSign   ] };
-+
-+	// cent
-+	key <AB03> { [           c,  C,          cent,       cent       ] };
-+
++	key <AD11> { [ bracketleft,  braceleft,  udiaeresis, Udiaeresis ] };
++	key <AD12> { [ bracketright, braceright, otilde,     Otilde     ] };
++	// £
 +	key <AE03> { [           3,  numbersign, sterling,   sterling   ] };
 +
-+	include "us(euro)"
++	include "eurosign(e)"
++	include "eurosign(5)"
 +};
+--- xkeyboard-config-1.1/rules/base.xml.in~	2007-09-26 14:56:42.000000000 +0300
++++ xkeyboard-config-1.1/rules/base.xml.in	2007-12-25 22:45:56.886753769 +0200
+@@ -1645,6 +1645,12 @@
+             <_description>Dvorak</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>us</name>
++            <_description>US keyboard with Estonian letters</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
