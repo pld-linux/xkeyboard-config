@@ -12,7 +12,7 @@
      key <AB09>	{ [    period,      colon,      greater,     division ]	};
  
      include "level3(ralt_switch)"
-+    include "eurosign(5)"
++    include "eurosign(e)"
  };
  
  partial alphanumeric_keys
@@ -28,7 +28,7 @@
  
      include "level3(ralt_switch)"
      include "kpdl(comma)"
-+    include "eurosign(e)"
++    include "eurosign(5)"
 +};
 +
 +// Estonian few characters on basic US keymap.
