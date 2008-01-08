@@ -2,7 +2,7 @@ Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	1.1
-Release:	4
+Release:	5
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
