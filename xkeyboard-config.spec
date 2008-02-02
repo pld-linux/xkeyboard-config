@@ -1,13 +1,12 @@
 Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
-Version:	1.1
-Release:	5
+Version:	1.2
+Release:	1
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
-# Source0-md5:	2c76b91bd31bff78db771566578fe520
-Patch0:		%{name}-us_ee.patch
+# Source0-md5:	667c582a54d5715d24110c20e8c4be38
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -34,7 +33,8 @@ systemów opartych na XKB.
 
 %prep
 %setup -q
-%patch0 -p1
+%{__aclocal}
+%{__autoconf}
 
 %build
 %configure \
@@ -54,6 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT%{_datadir}/X11/xkb/compiled
 ln -s /var/lib/xkb $RPM_BUILD_ROOT%{_datadir}/X11/xkb/compiled
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -66,7 +68,7 @@ if [ -d %{_datadir}/X11/xkb/compiled ]; then
 	rm -rf %{_datadir}/X11/xkb/compiled
 fi
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING CREDITS ChangeLog NEWS README TODO docs/H* docs/R*
 %{_datadir}/X11/xkb
