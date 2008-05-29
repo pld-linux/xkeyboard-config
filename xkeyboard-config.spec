@@ -62,7 +62,11 @@ rm -rf $RPM_BUILD_ROOT
 %pretrans
 # it used to be directory in xkbdata
 if [ -d %{_datadir}/X11/xkb/symbols/pc ]; then
-	rm -rf %{_datadir}/X11/xkb/symbols/pc
+	mv -b %{_datadir}/X11/xkb/symbols/pc{,.dir}
+%banner -e %{name} <<EOF
+Check out %{_datadir}/X11/xkb/symbols/pc.dir
+for your own files and remove it when done.
+EOF
 fi
 if [ -d %{_datadir}/X11/xkb/compiled ]; then
 	rm -rf %{_datadir}/X11/xkb/compiled
