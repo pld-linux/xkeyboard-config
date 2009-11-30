@@ -10,6 +10,8 @@ Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
+BuildRequires:	gettext-devel
+BuildRequires:	intltool
 BuildRequires:	xorg-app-xkbcomp
 Provides:	xorg-data-xkbdata
 Obsoletes:	xorg-data-xkbdata
