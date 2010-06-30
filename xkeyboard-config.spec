@@ -1,17 +1,20 @@
 Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
-Version:	1.8
+Version:	1.9
 Release:	1
 License:	MIT
 Group:		X11/Development/Libraries
-Source0:	http://xlibs.freedesktop.org/xkbdesc/%{name}-%{version}.tar.bz2
-# Source0-md5:	37ae41628cd2ce35d202d30b1820c8ba
+Source0:	http://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
+# Source0-md5:	1fe14114db8e4f121060663d1fa5e214
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	intltool
+# AM_GLIB_GNU_GETTEXT
+BuildRequires:	glib2-devel >= 1:2.0
+BuildRequires:	intltool >= 0.30
+BuildRequires:	rpmbuild(macros) >= 1.446
 BuildRequires:	xorg-app-xkbcomp
 Provides:	xorg-data-xkbdata
 Obsoletes:	xorg-data-xkbdata
@@ -35,12 +38,11 @@ systemów opartych na XKB.
 
 %prep
 %setup -q
-%{__aclocal}
-%{__autoconf}
 
 %build
+%{__aclocal}
+%{__autoconf}
 %configure \
-	--enable-xkbcomp-symlink \
 	--enable-compat-rules \
 	--with-xkb-rules-symlink=xorg \
 	--with-xkb-base=%{_datadir}/X11/xkb
@@ -78,3 +80,4 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING CREDITS ChangeLog NEWS README TODO docs/H* docs/R*
 %{_datadir}/X11/xkb
+%{_npkgconfigdir}/xkeyboard-config.pc
