@@ -2,7 +2,7 @@ Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	2.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
@@ -17,7 +17,7 @@ BuildRequires:	intltool >= 0.30
 BuildRequires:	rpmbuild(macros) >= 1.446
 BuildRequires:	xorg-app-xkbcomp
 Provides:	xorg-data-xkbdata
-Obsoletes:	xorg-data-xkbdata
+Obsoletes:	xorg-data-xkbdata < 0.9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
