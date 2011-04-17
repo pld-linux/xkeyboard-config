@@ -16,6 +16,8 @@ BuildRequires:	glib2-devel >= 1:2.0
 BuildRequires:	intltool >= 0.30
 BuildRequires:	rpmbuild(macros) >= 1.446
 BuildRequires:	xorg-app-xkbcomp
+# for sinhala layouts
+Requires:	xorg-lib-libX11 >= 1.4.3
 Provides:	xorg-data-xkbdata
 Obsoletes:	xorg-data-xkbdata < 0.9
 BuildArch:	noarch
@@ -43,6 +45,7 @@ systemów opartych na XKB.
 %{__aclocal}
 %{__autoconf}
 %configure \
+	--disable-runtime-deps \
 	--enable-compat-rules \
 	--with-xkb-rules-symlink=xorg \
 	--with-xkb-base=%{_datadir}/X11/xkb
@@ -55,7 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/X11/xkb/compiled
 ln -s /var/lib/xkb $RPM_BUILD_ROOT%{_datadir}/X11/xkb/compiled
 
 %find_lang %{name}
