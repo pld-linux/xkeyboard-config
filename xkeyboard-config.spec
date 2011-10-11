@@ -16,6 +16,7 @@ BuildRequires:	glib2-devel >= 1:2.0
 BuildRequires:	intltool >= 0.30
 BuildRequires:	rpmbuild(macros) >= 1.446
 BuildRequires:	xorg-app-xkbcomp
+BuildRequires:	xorg-util-util-macros >= 1.12
 # for sinhala layouts
 Requires:	xorg-lib-libX11 >= 1.4.3
 Provides:	xorg-data-xkbdata
