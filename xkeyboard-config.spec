@@ -8,6 +8,7 @@ Group:		X11/Development/Libraries
 Source0:	http://xorg.freedesktop.org/archive/individual/data/%{name}-%{version}.tar.bz2
 # Source0-md5:	9f6d7a37fd192264a3ca07ede5d183c3
 Patch0:		%{name}-CVE-2012-0064.patch
+Patch1:		%{name}-function-keys.patch
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -44,6 +45,7 @@ systemów opartych na XKB.
 %setup -q
 
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
