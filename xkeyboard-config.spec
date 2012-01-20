@@ -2,13 +2,14 @@ Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	2.4.1
-Release:	3
+Release:	4
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	http://xorg.freedesktop.org/archive/individual/data/%{name}-%{version}.tar.bz2
 # Source0-md5:	9f6d7a37fd192264a3ca07ede5d183c3
 Patch0:		%{name}-CVE-2012-0064.patch
 Patch1:		%{name}-function-keys.patch
+Patch2:		%{name}-backspace.patch
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -46,6 +47,7 @@ systemów opartych na XKB.
 
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
