@@ -10,7 +10,7 @@ Source0:	http://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	gettext-devel >= 0.18.1
+BuildRequires:	gettext-tools >= 0.18.1
 # AM_GLIB_GNU_GETTEXT
 BuildRequires:	glib2-devel >= 1:2.0
 BuildRequires:	intltool >= 0.30
