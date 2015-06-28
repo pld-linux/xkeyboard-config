@@ -46,7 +46,7 @@ systemów opartych na XKB.
 %{__autoconf}
 %{__automake}
 %configure \
-%ifnarch x32
+%if "%{_gnu}" != "-gnux32"
 	--host=%{_host} \
 	--build=%{_host} \
 %endif
