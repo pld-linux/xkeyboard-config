@@ -2,11 +2,12 @@ Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	2.23.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
 # Source0-md5:	875cbd09ab8394277fd16070326abbae
+Patch0:		xkeyboard-config-pl.patch
 URL:		https://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -39,6 +40,7 @@ systemów opartych na XKB.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}

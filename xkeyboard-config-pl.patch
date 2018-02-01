@@ -1,0 +1,11 @@
+diff -urN xkeyboard-config-2.23.1.org/symbols/pl xkeyboard-config-2.23.1/symbols/pl
+--- xkeyboard-config-2.23.1.org/symbols/pl	2018-01-31 20:06:08.000000000 +0100
++++ xkeyboard-config-2.23.1/symbols/pl	2018-02-01 18:18:24.763390795 +0100
+@@ -497,7 +497,6 @@
+        include "sun_vndr/pl(sun_type6)"
+ };
+ 
+-------------------------------
+ //Glagolica
+ partial alphanumeric_keys
+ xkb_symbols "glagolica"
