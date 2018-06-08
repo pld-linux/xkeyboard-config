@@ -1,25 +1,25 @@
 Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
-Version:	2.23.1
-Release:	2
+Version:	2.24
+Release:	1
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
-# Source0-md5:	875cbd09ab8394277fd16070326abbae
-Patch0:		xkeyboard-config-pl.patch
+# Source0-md5:	74c4bdf52382127cb5802c3f2ab441e0
 URL:		https://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	intltool >= 0.30
 BuildRequires:	rpmbuild(macros) >= 1.446
-BuildRequires:	xorg-app-xkbcomp
 BuildRequires:	xorg-util-util-macros >= 1.12
 # for sinhala layouts
 Requires:	xorg-lib-libX11 >= 1.4.3
 Provides:	xorg-data-xkbdata
 Obsoletes:	xorg-data-xkbdata < 0.9
+# due to large maximum keycode handling
+Conflicts:	xorg-app-xkbcomp < 1.4.2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,7 +40,6 @@ systemów opartych na XKB.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
