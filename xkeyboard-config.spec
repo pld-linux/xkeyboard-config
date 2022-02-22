@@ -1,20 +1,23 @@
 Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
-Version:	2.34
+Version:	2.35.1
 Release:	1
 License:	MIT
 Group:		X11/Development/Libraries
-Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
-# Source0-md5:	59eee0166c214c692d084e27ba33ec56
+Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.xz
+# Source0-md5:	cea34f56cdf13c4a82b264bc513fe834
 URL:		https://www.freedesktop.org/wiki/Software/XKeyboardConfig
-BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	libxslt-progs
+BuildRequires:	meson >= 0.54.0
+BuildRequires:	ninja >= 1.5
+BuildRequires:	pkgconfig
 BuildRequires:	python3 >= 1:3.0
 BuildRequires:	rpmbuild(macros) >= 1.446
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-util-util-macros >= 1.12
+BuildRequires:	xz
 # for sinhala layouts
 Requires:	xorg-lib-libX11 >= 1.4.3
 Provides:	xorg-data-xkbdata
@@ -43,26 +46,14 @@ systemów opartych na XKB.
 %setup -q
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure \
-%if "%{_gnu}" != "-gnux32"
-	--host=%{_host} \
-	--build=%{_host} \
-%endif
-	--disable-runtime-deps \
-	--enable-compat-rules \
-	--with-xkb-rules-symlink=xorg \
-	--with-xkb-base=%{_datadir}/X11/xkb
+%meson build
 
-%{__make}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 ln -s /var/lib/xkb $RPM_BUILD_ROOT%{_datadir}/X11/xkb/compiled
 
@@ -86,7 +77,7 @@ fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog NEWS README docs/H* docs/R*
+%doc AUTHORS COPYING NEWS README docs/H* docs/R*
 %{_datadir}/X11/xkb
 %{_npkgconfigdir}/xkeyboard-config.pc
 %{_mandir}/man7/xkeyboard-config.7*
