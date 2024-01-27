@@ -1,12 +1,12 @@
 Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
-Version:	2.38
+Version:	2.40
 Release:	1
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.xz
-# Source0-md5:	c89fb974e8f1ba14c64d1bcf3a0f8d11
+# Source0-md5:	11c8d0ed0f7b604dc5757b7fa1e908d3
 URL:		https://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	libxslt-progs
