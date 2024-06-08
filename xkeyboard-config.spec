@@ -1,19 +1,22 @@
+# TODO: drop py310 patch and BR python>=3.11 when available in PLD (instead of separate StrEnum package)
 Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
-Version:	2.41
+Version:	2.42
 Release:	1
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.xz
-# Source0-md5:	2f0b843b5283b82cae0402cbc4f374b4
+# Source0-md5:	2d3b7e43e597f4c607ad6261e2b3d77f
+Patch0:		%{name}-py310.patch
 URL:		https://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	libxslt-progs
 BuildRequires:	meson >= 0.54.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	python3 >= 1:3.0
+BuildRequires:	python3 >= 1:3.7
+BuildRequires:	python3-StrEnum
 BuildRequires:	rpmbuild(macros) >= 1.446
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-util-util-macros >= 1.12
@@ -44,6 +47,7 @@ systemów opartych na XKB.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %meson build
