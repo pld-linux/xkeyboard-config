@@ -2,12 +2,12 @@
 Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
-Version:	2.43
+Version:	2.44
 Release:	1
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.xz
-# Source0-md5:	2f6226ecd797f7afc5a2e83726383cf1
+# Source0-md5:	623a88fe63c6aefe3621bdfd5ba72764
 URL:		https://www.freedesktop.org/wiki/Software/XKeyboardConfig
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	libxslt-progs
@@ -16,7 +16,7 @@ BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	python3 >= 1:3.9
 BuildRequires:	python3-StrEnum
-BuildRequires:	rpmbuild(macros) >= 1.446
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-util-util-macros >= 1.12
 BuildRequires:	xz
@@ -48,14 +48,14 @@ systemów opartych na XKB.
 %setup -q
 
 %build
-%meson build
+%meson
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 ln -s /var/lib/xkb $RPM_BUILD_ROOT%{_datadir}/X11/xkb/compiled
 
@@ -79,7 +79,7 @@ fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING NEWS README docs/H* docs/R*
+%doc AUTHORS COPYING ChangeLog.md README.md docs/H* docs/R*
 %{_datadir}/X11/xkb
 %{_npkgconfigdir}/xkeyboard-config.pc
 %{_mandir}/man7/xkeyboard-config.7*
