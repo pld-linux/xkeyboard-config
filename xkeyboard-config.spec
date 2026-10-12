@@ -2,7 +2,7 @@ Summary:	X Keyboard Configuration Database
 Summary(pl.UTF-8):	Baza danych konfiguracji klawiatury pod X
 Name:		xkeyboard-config
 Version:	2.47
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Development/Libraries
 Source0:	https://xorg.freedesktop.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.xz
@@ -66,19 +66,25 @@ ln -s /var/lib/xkb $RPM_BUILD_ROOT%{_datadir}/xkeyboard-config-2/compiled
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%pretrans
-# it used to be directory in xkbdata, not it's a file
-if [ -d %{_datadir}/X11/xkb/symbols/pc ]; then
-	rm -rf %{_datadir}/X11/xkb/symbols/pc
-fi
-# it's a symlink now
-if [ -d %{_datadir}/X11/xkb/compiled ]; then
-	rm -rf %{_datadir}/X11/xkb/compiled
-fi
-# it's a symlink now
-if [ -d %{_datadir}/X11/xkb ]; then
-	rm -rf %{_datadir}/X11/xkb
-fi
+%pretrans -p <lua>
+-- %{_datadir}/X11/xkb used to be a directory, it's a symlink now
+local function rmtree(path)
+	local st = posix.stat(path)
+	if st and st.type == "directory" then
+		for _, name in ipairs(posix.dir(path)) do
+			if name ~= "." and name ~= ".." then
+				rmtree(path .. "/" .. name)
+			end
+		end
+		posix.rmdir(path)
+	elseif st then
+		os.remove(path)
+	end
+end
+local st = posix.stat("%{_datadir}/X11/xkb")
+if st and st.type == "directory" then
+	rmtree("%{_datadir}/X11/xkb")
+end
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
